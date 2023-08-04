@@ -1,0 +1,59 @@
+<!-- defn: design a login form using html, js, angularjs, with following validations 
+password- 6to12 char  
+username- not start with special char or number
+both should not be blank
+email- using regex  -->
+<!DOCTYPE html>
+<html lang="en" ng-app="MyMod">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script src="angular.min.js"> </script>
+    <script src="exp2_module.js"> </script>
+    <script>
+        function ValidateEmail(inputText)
+        {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if(inputText.value.match(mailformat))
+            {
+                alert("Valid email address!");
+                document.form1.text1.focus();
+                return true;
+            }
+            else
+            {
+                alert("You have entered an invalid email address!");
+                document.form1.text1.focus();
+                return false;
+            }
+        }
+    </script>
+</head>
+<body ng-controller="mycontroller" onload='document.form1.text1.focus()'>
+    <h1>Login</h1>
+    <form name="myform">
+        Username: 
+        <br>
+        <input type="text" required name="usname" ng-model="uname">
+        <br>
+        E-mail: 
+        <br>
+        <input type="text" required ng-model="email">
+        <br>
+        Password: 
+        <br>
+        <input type="password" required name="passw" ng-model="pass" ng-minlength="6" ng-maxlength="12">
+        <span>
+            <span ng-show="myform.passw.$error.required"> Please fill the field </span>
+            <span ng-show="myform.passw.$error.minlength"> Password is too short </span>
+            <span ng-show="myform.passw.$error.maxlength"> Password is too long</span>
+        </span>
+        <br>
+        <input type="button" value="Submit" onclick="ValidateEmail(document.form1.text1)">
+        <input type="button" value="Clear">
+    </form>
+    
+</body>
+</html>

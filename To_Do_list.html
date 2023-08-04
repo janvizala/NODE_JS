@@ -1,0 +1,54 @@
+<!-- def: make a to do list using javascript -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+
+    <script>
+        function myfun()
+        {
+            var x = document.getElementById("xyz");
+            var y = document.createElement("li");
+            var z = document.createElement("input");
+            z.setAttribute("type","button");
+            z.setAttribute("value","Done");
+            z.setAttribute("onclick","colorlist()");
+            z.setAttribute("id","listcol");
+            var w = document.createElement("input");
+            w.setAttribute("type","button");
+            w.setAttribute("value","Delete");
+            var t = document.getElementById("abc").value;
+            x.append(y);
+            y.append(t);
+            y.append(z);
+            y.append(w);
+        }
+        function colorlist()
+        {
+            const last=document.getElementById("abc").value;
+            last.style.fontcolor="green";
+        }
+    </script>
+
+</head>
+<body>
+    <div>
+    <input type = "text" id = "abc">
+    <input type = "button" value = "Enter" onclick = "myfun()">
+    </div>
+    
+    <div>
+        <ul>
+            <li>To Do List :-
+            <ul id = "xyz">
+
+            </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

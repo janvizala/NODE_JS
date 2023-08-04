@@ -1,0 +1,1 @@
+// WAP to create my own module to compute the average of any number of elements.
